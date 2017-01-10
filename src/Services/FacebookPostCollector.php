@@ -95,6 +95,8 @@ class FacebookPostCollector {
     $url = $page_name . $this->getFacebookFeedUrl();
     do {
       $response = $this->facebook->get($url);
+      // Need to ensure we're not caught in an infinite loop if there's no next page.
+      $url = NULL;
       if ($response->getHttpStatusCode() == Response::HTTP_OK) {
         $data       = json_decode($response->getBody(), TRUE);
         $posts      = array_merge($this->extractFacebookFeedData($post_types, $data['data']), $posts);
@@ -103,7 +105,7 @@ class FacebookPostCollector {
           $url = $data['paging']['next'];
         }
       }
-    } while ($post_count < $num_posts);
+    } while ($post_count < $num_posts || NULL != $url);
     return $posts;
   }
 

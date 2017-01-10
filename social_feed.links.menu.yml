@@ -1,0 +1,27 @@
+social_feed.social_feed:
+  title: 'Social Feed'
+  parent: system.admin_config_services
+  route_name: social_feed.social_feed
+  description: 'Manage Social Feed Settings'
+
+social_feed.facebook_settings_form:
+  title: 'Facebook Settings'
+  route_name: social_feed.facebook_settings_form
+  description: 'Manage Facebook settings'
+  parent: social_feed.social_feed
+  weight: 99
+
+social_feed.twitter_settings_form:
+  title: 'Twitter Settings Form'
+  route_name: social_feed.twitter_settings_form
+  description: 'Manage Twitter settings'
+  parent: social_feed.social_feed
+  weight: 99
+
+social_feed.instagram_settings_form:
+  title: 'Instagram Settings Form'
+  route_name: social_feed.instagram_settings_form
+  description: 'Manage Instagram settings'
+  parent: social_feed.social_feed
+  weight: 99
+

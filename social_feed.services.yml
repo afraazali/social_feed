@@ -1,0 +1,19 @@
+services:
+  social_feed.facebook:
+    class: Drupal\social_feed\Services\FacebookPostCollector
+    arguments:
+      - @config.factory
+    calls:
+      - [setFacebookClient]
+  social_feed.twitter:
+    class: Drupal\social_feed\Services\TwitterPostCollector
+    arguments:
+      - @config.factory
+    calls:
+      - [setTwitterClient]
+  social_feed.instagram:
+    class: Drupal\social_feed\Services\InstagramPostCollector
+    arguments:
+      - @config.factory
+    calls:
+      - [setInstagramClient]

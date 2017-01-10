@@ -1,0 +1,11 @@
+consumer_key: ''
+consumer_secret: ''
+access_token: ''
+access_token_secret: ''
+tweets_count: 3
+hashtag: false
+time_stamp: false
+time_format: 'd-M-Y'
+time_ago: false
+trim_length: 120
+teaser_text: 'Read More'

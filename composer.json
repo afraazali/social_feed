@@ -1,0 +1,19 @@
+{
+  "name": "drupal/social_feed",
+  "type": "drupal-module",
+  "description": "Provides user an option to easily fetch feeds from Facebook, Twitter or Instagram and then display them accordingly using block",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/social_feed",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/social_feed",
+    "source": "http://cgit.drupalcode.org/social_feed"
+  },
+  "require": {
+    "abraham/twitteroauth": "^0.7.2",
+    "facebook/graph-sdk": "^5.4.3",
+    "cosenary/instagram": "v2.3",
+    "nesbot/carbon": "1.9.*"
+  }
+}

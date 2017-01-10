@@ -32,87 +32,91 @@ class TwitterSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('social_feed.twittersettings');
-    $form['consumer_key'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Twitter Consumer Key'),
+    $config                      = $this->config('social_feed.twittersettings');
+    $form['consumer_key']        = [
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Twitter Consumer Key'),
       '#default_value' => $config->get('consumer_key'),
-      '#size' => 60,
-      '#maxlength' => 100,
-      '#required' => TRUE,
+      '#size'          => 60,
+      '#maxlength'     => 100,
+      '#required'      => TRUE,
     ];
-    $form['consumer_secret'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Twitter Consumer Secret'),
+    $form['consumer_secret']     = [
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Twitter Consumer Secret'),
       '#default_value' => $config->get('consumer_secret'),
-      '#size' => 60,
-      '#maxlength' => 100,
-      '#required' => TRUE,
+      '#size'          => 60,
+      '#maxlength'     => 100,
+      '#required'      => TRUE,
     ];
-    $form['access_token'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Twitter Access Token'),
+    $form['access_token']        = [
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Twitter Access Token'),
       '#default_value' => $config->get('access_token'),
-      '#size' => 60,
-      '#maxlength' => 100,
-      '#required' => TRUE,
+      '#size'          => 60,
+      '#maxlength'     => 100,
+      '#required'      => TRUE,
     ];
     $form['access_token_secret'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Twitter Access Token Secret'),
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Twitter Access Token Secret'),
       '#default_value' => $config->get('access_token_secret'),
-      '#size' => 60,
-      '#maxlength' => 100,
-      '#required' => TRUE,
+      '#size'          => 60,
+      '#maxlength'     => 100,
+      '#required'      => TRUE,
     ];
-    $form['tweets_count'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Tweets Count'),
+    $form['tweets_count']        = [
+      '#type'          => 'number',
+      '#title'         => $this->t('Tweets Count'),
       '#default_value' => $config->get('tweets_count'),
-      '#size' => 60,
-      '#maxlength' => 100,
+      '#size'          => 60,
+      '#maxlength'     => 100,
+      '#min'           => 1,
     ];
-    $form['hashtag'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Show Hashtag'),
+    $form['hashtag']             = [
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Show Hashtag'),
       '#default_value' => $config->get('hashtag'),
     ];
-    $form['time_stamp'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Show Date/Time'),
+    $form['time_stamp']          = [
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Show Date/Time'),
       '#default_value' => $config->get('time_stamp'),
     ];
-    $form['time_format'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Date/Time format'),
+    $form['time_format']         = [
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Date/Time format'),
       '#default_value' => $config->get('time_format'),
-      '#description' => $this->t('You can check for PHP Date Formats <a href="@datetime" target="@blank">here</a>', ['@datetime' => 'http://php.net/manual/en/function.date.php', '@blank' => '_blank']),
-      '#size' => 60,
-      '#maxlength' => 100,
-      '#states' => [
+      '#description'   => $this->t('You can check for PHP Date Formats <a href="@datetime" target="@blank">here</a>', [
+        '@datetime' => 'http://php.net/manual/en/function.date.php',
+        '@blank'    => '_blank',
+      ]),
+      '#size'          => 60,
+      '#maxlength'     => 100,
+      '#states'        => [
         'visible' => [
           ':input[name="time_stamp"]' => ['checked' => TRUE],
         ],
       ],
     ];
-    $form['time_ago'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Show date Twitter style'),
+    $form['time_ago']            = [
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Show date Twitter style'),
       '#default_value' => $config->get('time_ago'),
     ];
-    $form['trim_length'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Trim Length'),
+    $form['trim_length']         = [
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Trim Length'),
       '#default_value' => $config->get('trim_length'),
-      '#size' => 60,
-      '#maxlength' => 60,
+      '#size'          => 60,
+      '#maxlength'     => 60,
     ];
-    $form['teaser_text'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Teaser Text'),
+    $form['teaser_text']         = [
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Teaser Text'),
       '#default_value' => $config->get('teaser_text'),
-      '#size' => 60,
-      '#maxlength' => 60,
+      '#size'          => 60,
+      '#maxlength'     => 60,
     ];
     return parent::buildForm($form, $form_state);
   }

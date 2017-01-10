@@ -42,8 +42,8 @@ class InstagramPostCollector {
    *   Instagram client.
    */
   public function __construct(ConfigFactoryInterface $configFactory, Instagram $instagram = NULL) {
-    $config = $configFactory->get('social_feed.instagramsettings');
-    $this->apiKey = $config->get('client_id');
+    $config            = $configFactory->get('social_feed.instagramsettings');
+    $this->apiKey      = $config->get('client_id');
     $this->accessToken = $config->get('access_token');
 
     $this->instagram = $instagram;
@@ -71,15 +71,15 @@ class InstagramPostCollector {
    *   An array of stdClass posts.
    */
   public function getPosts($numPosts, $resolution) {
-    $posts = [];
+    $posts    = [];
     $response = $this->instagram->getUserMedia('self', $numPosts);
     if (isset($response->data)) {
       $posts = array_map(function ($post) use ($resolution) {
         $type = $this->getMediaArrayKey($post->type);
         return [
-          'raw' => $post,
+          'raw'       => $post,
           'media_url' => isset($post->{$type}->{$resolution}) ? $post->{$type}->{$resolution}->url : '',
-          'type' => $post->type,
+          'type'      => $post->type,
         ];
       }, $response->data);
     }

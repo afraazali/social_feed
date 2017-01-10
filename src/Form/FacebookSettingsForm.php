@@ -32,7 +32,7 @@ class FacebookSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('social_feed.facebooksettings');
+    $config            = $this->config('social_feed.facebooksettings');
     $post_type_options = ['link', 'status', 'photo', 'video'];
 
     $form['page_name'] = [
@@ -64,11 +64,13 @@ class FacebookSettingsForm extends ConfigFormBase {
     ];
 
     $form['no_feeds'] = [
-      '#type'          => 'textfield',
+      '#type'          => 'number',
       '#title'         => $this->t('Number of Feeds'),
       '#default_value' => $config->get('no_feeds'),
       '#size'          => 60,
       '#maxlength'     => 60,
+      '#max'           => 100,
+      '#min'           => 1,
     ];
 
     $form['all_types'] = [

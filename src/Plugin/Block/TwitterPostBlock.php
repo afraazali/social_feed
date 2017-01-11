@@ -12,7 +12,7 @@ use Drupal\social_feed\Services\TwitterPostCollector;
  * Provides a 'TwitterPostBlock' block.
  *
  * @Block(
- *  id = "twitter_post_block",
+ *  id = "twitter_post",
  *  admin_label = @Translation("Twitter Post Block"),
  * )
  */

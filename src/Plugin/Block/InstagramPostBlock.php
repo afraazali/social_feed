@@ -12,7 +12,7 @@ use Drupal\Core\Config\ConfigFactory;
  * Provides a 'InstagramPostBlock' block.
  *
  * @Block(
- *  id = "instagram_post_block",
+ *  id = "instagram_post",
  *  admin_label = @Translation("Instagram Post Block"),
  * )
  */

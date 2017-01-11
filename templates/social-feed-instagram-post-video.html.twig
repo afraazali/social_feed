@@ -1,9 +1,11 @@
-{% if post.media_url %}
-  {% if post.post_url %}
-    <a href="{{ post.post_url }}">
-      <video controls="controls" src="{{ post.media_url }}"></video>
-    </a>
-  {% else %}
-    <video src="{{ post.media_url }}"></video>
+<div class="instagram-post instagram-post-{{ post.type | clean_class }}">
+  {% if post.media_url %}
+    {% if post.post_url %}
+      <a href="{{ post.post_url }}">
+        <video controls="controls" src="{{ post.media_url }}"></video>
+      </a>
+    {% else %}
+      <video src="{{ post.media_url }}"></video>
+    {% endif %}
   {% endif %}
-{% endif %}
+</div>

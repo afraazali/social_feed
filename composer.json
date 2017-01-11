@@ -15,5 +15,8 @@
     "facebook/graph-sdk": "^5.4.3",
     "cosenary/instagram": "v2.3",
     "nesbot/carbon": "1.9.*"
+  },
+  "require-dev": {
+    "vlucas/phpdotenv": "2.4.*"
   }
 }
